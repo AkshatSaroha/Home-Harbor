@@ -167,6 +167,7 @@ export default function CreateListing() {
       navigate(`/listing/${data._id}`);
     } catch (error) {
       setError(error.message);
+      console.log(error);
       setLoading(false);
     }
   };

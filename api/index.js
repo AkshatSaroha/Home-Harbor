@@ -6,11 +6,18 @@ import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listing.route.js';
 import cookieParser from 'cookie-parser';
 import path from 'path';
-import cors from "cors"
+// import cors from "cors"
 dotenv.config();
 
-mongoose
-  .connect(process.env.MONGO)
+
+  mongoose
+  .connect(process.env.MONGO, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    writeConcern: {
+      w: 'majority', // Specify 'majority' write concern
+    },
+  })
   .then(() => {
     console.log('Connected to MongoDB!');
   })
@@ -18,13 +25,13 @@ mongoose
     console.log(err);
   });
 
-  const __dirname = path.resolve();
+const __dirname = path.resolve();
 
 const app = express();
-app.use(cors({
-  origin: 'https://home-harbor-ffzj.onrender.com',
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: 'https://home-harbor-ffzj.onrender.com',
+//   credentials: true,
+// }));
 
 app.use(express.json());
 

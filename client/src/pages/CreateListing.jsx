@@ -148,15 +148,18 @@ export default function CreateListing() {
       });
       const data = await res.json();
       setLoading(false);
-      // navigate(`/listing/${data._id}`);
+      navigate(`/listing/${data._id}`);
+      // navigate('/')
       if (data.success === false) {
-        setError(data.message);
+        // console.log(error);
+        // setError(data.message);
       }
       navigate(`/listing/${data._id}`);
       
       
     } catch (error) {
       setError(error.message);
+      console.log(error);
       setLoading(false);
     }
   };
