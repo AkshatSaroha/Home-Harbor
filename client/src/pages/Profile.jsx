@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useSelector } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
@@ -31,11 +32,6 @@ export default function Profile() {
   const [userListings, setUserListings] = useState([]);
   const dispatch = useDispatch();
 
-  // firebase storage
-  // allow read;
-  // allow write: if
-  // request.resource.size < 2 * 1024 * 1024 &&
-  // request.resource.contentType.matches('image/.*')
 
   useEffect(() => {
     if (file) {
