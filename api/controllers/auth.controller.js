@@ -60,7 +60,7 @@ export const google = async (req, res, next) => {
       const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
       const { password: pass, ...rest } = newUser._doc;
       res
-        .cookie('access_token', token, { httpOnly: true })
+        .cookie('access_token', token, { httpOnly: true, expires: new Date(Date.now() + 24 * 60 * 60 * 1000)})
         .status(200)
         .json(rest);
     }
