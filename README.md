@@ -1,6 +1,6 @@
 # Home Harbor - Real Estate Website
 
-Welcome to Home Harbor, a real estate website designed to help users find their dream homes!
+Welcome to Home Harbor, a real estate website designed to help users find their dream homes! 
 
 ## Features
 
